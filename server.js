@@ -25,12 +25,15 @@ var request = require('request');
 // create the server
 const app = express();
 
-// set up handlbars as the templating engine
+// set up handlebars as the templating engine
 app.set('view engine', 'hbs');
 app.engine('hbs', engine({
     extname: 'hbs',
     defaultView: 'default'
 }));
+
+// set up static images folder
+app.use(express.static("images"));
 
 // set up the parser to get the contents of data from html forms 
 // this would be used in a POST to the server as follows:
